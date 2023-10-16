@@ -39,13 +39,11 @@ public class GuessNumber
         this.currentAttempts++;
         if (this.currentAttempts > this.maxAttempts)
         {
+            this.gameOver = true;
             return "Você excedeu o número máximo de tentativas! Tente novamente.";
         }
         bool isNumber = Int32.TryParse(userEntry, out int value);
-        if (!isNumber)
-        {
-            return "Entrada inválida! Não é um número.";
-        }
+        if (!isNumber) return "Entrada inválida! Não é um número.";
         if (value < -100 || value > 100)
         {
             this.userValue = 0;
@@ -82,16 +80,14 @@ public class GuessNumber
     //4 - Verifique a resposta da jogada
     public string AnalyzePlay()
     {
+        if (this.gameOver) return "O jogo terminou. Deseja jogar novamente?";
         if (this.userValue < this.randomValue)
-        {
             return "Tente um número MAIOR";
-        }
         else if (this.userValue > this.randomValue)
-        {
             return "Tente um número MENOR";
-        }
         else
         {
+            this.gameOver = true;
             return "ACERTOU!";
         }
     }
@@ -99,6 +95,11 @@ public class GuessNumber
     //7 - Adicione uma opção para reiniciar o jogo
     public void RestartGame()
     {
-        throw new NotImplementedException();
+        this.userValue = 0;
+        this.randomValue = 0;
+        this.maxAttempts = 5;
+        this.currentAttempts = 0;
+        this.difficultyLevel = 1;
+        this.gameOver = false;
     }
 }
