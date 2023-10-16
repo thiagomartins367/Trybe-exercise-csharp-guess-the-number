@@ -53,7 +53,9 @@ public class GuessNumber
     //3 - Gere um número aleatório
     public string RandomNumber()
     {
-        throw new NotImplementedException();
+        int randomNumber = this.random.GetInt(-100, 100);
+        this.randomValue = randomNumber;
+        return "A máquina escolheu um número de -100 à 100!";
     }
 
     //6 - Adicione níveis de dificuldade
