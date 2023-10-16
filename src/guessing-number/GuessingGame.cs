@@ -6,7 +6,7 @@ public class GuessNumber
 {
     //In this way we are passing the random number generator by dependency injection
     private IRandomGenerator random;
-    public GuessNumber() : this(new DefaultRandom()){}
+    public GuessNumber() : this(new DefaultRandom()) { }
     public GuessNumber(IRandomGenerator obj)
     {
         this.random = obj;
@@ -19,7 +19,7 @@ public class GuessNumber
     public int userValue;
     public int randomValue;
 
-    public int maxAttempts;
+    public int maxAttempts = 5;
     public int currentAttempts;
 
     public int difficultyLevel;
@@ -36,6 +36,11 @@ public class GuessNumber
     //5 - Adicione um limite de tentativas
     public string ChooseNumber(string userEntry)
     {
+        this.currentAttempts++;
+        if (this.currentAttempts > this.maxAttempts)
+        {
+            return "Você excedeu o número máximo de tentativas! Tente novamente.";
+        }
         bool isNumber = Int32.TryParse(userEntry, out int value);
         if (!isNumber)
         {
