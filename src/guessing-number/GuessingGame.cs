@@ -22,7 +22,7 @@ public class GuessNumber
     public int maxAttempts = 5;
     public int currentAttempts;
 
-    public int difficultyLevel;
+    public int difficultyLevel = 1;
 
     public bool gameOver;
 
@@ -66,7 +66,17 @@ public class GuessNumber
     //6 - Adicione níveis de dificuldade
     public string RandomNumberWithDifficult()
     {
-        throw new NotImplementedException();
+        switch (this.difficultyLevel)
+        {
+            case 2:
+                this.randomValue = this.random.GetInt(-500, 500);
+                return "A máquina escolheu um número de -500 à 500!";
+            case 3:
+                this.randomValue = this.random.GetInt(-1000, 1000);
+                return "A máquina escolheu um número de -1000 à 1000!";
+            default:
+                return this.RandomNumber();
+        }
     }
 
     //4 - Verifique a resposta da jogada
