@@ -321,13 +321,3 @@ _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs
 Será testado que realizando diversas requisições à função implementada, a mesma irá reiniciar o jogo e colocar todas as variáveis em seus estados iniciais.
 
 </details>
-
-<details>
-<summary><strong>🗣 Nos dê feedbacks sobre o projeto!</strong></summary>
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário.
-**Leva menos de 3 minutos!**
-
-[Formulário de avaliação do projeto](https://be-trybe.typeform.com/to/ZTeR4IbH#cohort_hidden=CH1&template=betrybe/csharp-0x-exercicio-adivinhe-o-numero)
-
-</details>
